@@ -1,0 +1,29 @@
+from picamera import PiCamera 
+from time import sleep 
+ 
+camera=PiCamera() 
+camera.start_preview() 
+#camera.resolution=(600,900) 
+camera.vflip=True 
+#camera.hflip=True 
+sleep(10) 
+camera.capture('/home/pi/Desktop/test_d.jpg') 
+camera.stop_preview() 
+ 
+###################################Camcorder ##############################
+ 
+from picamera import PiCamera 
+from time import sleep 
+ 
+camera=PiCamera() 
+camera.vflip=True 
+camera.start_preview() 
+camera.start_recording('/home/pi/d_b.h264') 
+sleep(5) 
+camera.resolution=(600,900) 
+camera.stop_recording() 
+camera.stop_preview() 
+
+### Play video 
+##           omxplayer /home/pi/d_b.h264
+# change accordingly
